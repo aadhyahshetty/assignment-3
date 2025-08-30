@@ -1,0 +1,130 @@
+{
+  "info": {
+    "name": "Ecom Backend Final",
+    "_postman_id": "10ce159f-ae3a-4766-9246-6518b1a842a6",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/health"
+      }
+    },
+    {
+      "name": "List products",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/products"
+      }
+    },
+    {
+      "name": "Get product by id",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/products/{{product_id}}"
+      }
+    },
+    {
+      "name": "List users",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/users"
+      }
+    },
+    {
+      "name": "Get cart",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/cart/{{user_id}}"
+      }
+    },
+    {
+      "name": "Cart summary",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5000/api/cart-summary/{{user_id}}"
+      }
+    },
+    {
+      "name": "Add to cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": \"{{user_id}}\",\n  \"product_id\": \"{{product_id}}\",\n  \"quantity\": 1\n}"
+        },
+        "url": "http://localhost:5000/api/cart/add"
+      }
+    },
+    {
+      "name": "Update cart item",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cart_item_id\": \"{{cart_item_id}}\",\n  \"quantity\": 2\n}"
+        },
+        "url": "http://localhost:5000/api/cart/update"
+      }
+    },
+    {
+      "name": "Remove cart item",
+      "request": {
+        "method": "DELETE",
+        "url": "http://localhost:5000/api/cart/remove/{{cart_item_id}}"
+      }
+    },
+    {
+      "name": "Checkout",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_id\": \"{{user_id}}\"\n}"
+        },
+        "url": "http://localhost:5000/api/checkout"
+      }
+    },
+    {
+      "name": "Seed (dev)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:5000/api/dev/seed"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "user_id",
+      "value": ""
+    },
+    {
+      "key": "product_id",
+      "value": ""
+    },
+    {
+      "key": "cart_item_id",
+      "value": ""
+    }
+  ]
+}
